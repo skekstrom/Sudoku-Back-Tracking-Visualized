@@ -20,7 +20,7 @@ public class Client implements ActionListener {
     JFrame frame;
     JPanel main, sub;
     GUI gui;
-    JButton start;
+    JButton start, end;
     Container container;
     int[][] board = {{9, 4, 6, 0, 0, 0, 8, 3, 0},
                     {0, 0, 8, 9, 0, 0, 0, 4, 5},
@@ -45,6 +45,8 @@ public class Client implements ActionListener {
         //Creates the Start Button
         start = new JButton("Start");
         start.addActionListener(this);
+        end = new JButton("End");
+        end.addActionListener(this);
         //Creates the JPanels
         main = new JPanel();
         sub = new JPanel();
@@ -53,6 +55,7 @@ public class Client implements ActionListener {
         sub.setSize(600, 100);
         //Adds start button to sub
         sub.add(start);
+        sub.add(end);
         //Set the Layout of of the frame
         main.setLayout(new BorderLayout());
         main.add(gui, BorderLayout.CENTER);
@@ -188,6 +191,9 @@ public class Client implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
         if (evt.getSource() == start) {
             runSolve();
+        }
+        if(evt.getSource() == end) {
+            frame.dispose();
         }
     }
 }

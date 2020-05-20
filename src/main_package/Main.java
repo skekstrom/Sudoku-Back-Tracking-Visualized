@@ -1,13 +1,11 @@
+package main_package;
 
 /**
  *
  * @author Spencer Ekstrom
- * @version 1.0 December 16, 2019
+ * @version 2.0 May 19, 2020
  */
 public class Main {
-    
-    private static int row;
-    private static int col;
     
     public static void main(String[] args) {
         Client c = new Client();

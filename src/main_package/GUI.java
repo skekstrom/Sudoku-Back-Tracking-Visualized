@@ -1,7 +1,9 @@
+package main_package;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.util.Arrays;
 import javax.swing.JPanel;
 
 /**
@@ -11,14 +13,14 @@ import javax.swing.JPanel;
  */
 public class GUI extends JPanel {
 
-    int[][] board;
+    int[][] board, init_board;
     public GUI(int[][] board) {
         this.board = board;
+        this.init_board = Arrays.stream(board).map(int[]::clone).toArray(int[][]::new);
         setBackground(Color.white);
     }
 
     public void updateBoard(int[][] board) {
-        this.board = board;
         repaint();
     }
 
@@ -62,15 +64,26 @@ public class GUI extends JPanel {
         int x = 0;
         int y = 0;
         String num = null;
+        //Draws the numbers, green if it's new and black if it's original
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 x = (i + 1) * 66 - 33;
                 y = (j + 1) * 66 - 28;
-                num = String.valueOf(board[i][j]);
-                if(!(num.equals("0")))
-                    g.drawString(num, x, y);
+                num = String.valueOf(board[j][i]);
+                //If it's not blank
+                if(!(num.equals("0"))){
+                    //If it's original, draw it black
+                    if(board[j][i] == init_board[j][i]){
+                        g.setColor(Color.BLACK);
+                        g.drawString(num, x, y);
+                    }
+                    //If it's new, draw it green
+                    if(board[j][i] != init_board[j][i]){
+                        g.setColor(Color.GREEN);
+                        g.drawString(num, x, y);
+                    }
+                }
             }
         }
-        
     }
 }

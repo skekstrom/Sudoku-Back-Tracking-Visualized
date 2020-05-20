@@ -1,3 +1,4 @@
+package main_package;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Spencer Ekstrom
- * @version December 17, 2019 This runs the entire program
+ * @version May 19, 2020 
  */
 public class Client implements ActionListener {
 
@@ -22,7 +23,7 @@ public class Client implements ActionListener {
     GUI gui;
     JButton start, end;
     Container container;
-    int[][] board = {{9, 4, 6, 0, 0, 0, 8, 3, 0},
+    int[][] board ={{9, 4, 6, 0, 0, 0, 8, 3, 0},
                     {0, 0, 8, 9, 0, 0, 0, 4, 5},
                     {0, 7, 3, 0, 0, 2, 1, 9, 6},
                     {0, 0, 0, 2, 0, 0, 0, 0, 1},
